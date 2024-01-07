@@ -1,0 +1,86 @@
+/* Font declarations */
+/* Font declarations */
+@font-face {
+  font-family: 'Antonio';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Antonio/static/Antonio-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 300;
+  src: url('/fonts/League_Spartan/static/LeagueSpartan-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/fonts/League_Spartan/static/LeagueSpartan-Bold.ttf') format('truetype');
+}
+
+/* Default tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Site design tokens & styles */
+@layer base {
+  :root {
+    --fmpf-color-white: 0deg 0% 100%;
+    --fmpf-color-graydark: 240deg 67% 8%;
+    --fmpf-color-graymedium: 169deg 17% 26%;
+    --fmpf-color-graylight: 240deg 6% 54%;
+    --fmpf-color-teal: 194deg 48% 49%;
+    --fmpf-color-yellow: 33deg 82% 61%;
+    --fmpf-color-purple: 263deg 67% 51%;
+    --fmpf-color-redorange: 10deg 63% 51%;
+    --fmpf-color-red: 2deg 68% 53%;
+    --fmpf-color-orange: 17deg 73% 46%;
+    --fmpf-color-green: 169deg 73% 44%;
+    --fmpf-color-blue: 222deg 87% 56%;
+
+    --fmpf-font-family-antonio: 'Antonio';
+    --fmpf-font-family-spartan: 'Spartan';
+
+    --fmpf-h1-font-family: var(--fmpf-font-family-antonio);
+    --fmpf-h1-font-size: calc(80rem / 16);
+    --fmpf-h1-line-height: calc(103rem / 16);
+    --fmpf-h1-letter-spacing: normal;
+    --fmpf-h1-font-weight: 400;
+
+    --fmpf-h2-font-family: var(--fmpf-font-family-antonio);
+    --fmpf-h2-font-size: calc(40rem / 16);
+    --fmpf-h2-line-height: calc(52rem / 16);
+    --fmpf-h2-letter-spacing: calc(-1.5rem / 16);
+    --fmpf-h2-font-weight: 400;
+
+    --fmpf-h2-alt-font-family: var(--fmpf-font-family-antonio);
+    --fmpf-h2-alt-font-size: calc(28rem / 16);
+    --fmpf-h2-alt-line-height: normal;
+    --fmpf-h2-alt-letter-spacing: calc(-1.05rem / 16);
+    --fmpf-h2-alt-font-weight: 400;
+
+    --fmpf-h3-font-family: var(--fmpf-font-family-spartan);
+    --fmpf-h3-font-size: calc(12rem / 16);
+    --fmpf-h3-line-height: calc(25rem / 16);
+    --fmpf-h3-letter-spacing: calc(2.6rem / 16);
+    --fmpf-h3-font-weight: 700;
+
+    --fmpf-h4-font-family: var(--fmpf-font-family-spartan);
+    --fmpf-h4-font-size: calc(11rem / 16);
+    --fmpf-h4-line-height: calc(25rem / 16);
+    --fmpf-h4-letter-spacing: calc(1rem / 16);
+    --fmpf-h4-font-weight: 700;
+
+    --fmpf-body-font-family: var(--fmpf-font-family-spartan);
+    --fmpf-body-font-size: calc(14rem / 16);
+    --fmpf-body-line-height: calc(25rem / 16);
+    --fmpf-body-letter-spacing: normal;
+    --fmpf-body-font-weight: 400;
+
+
+
+    --fmpf-bg-img-starfield: url('/images/background-stars.svg');
+  }
+}

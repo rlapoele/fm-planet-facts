@@ -1,0 +1,25 @@
+---
+import '../styles/index.css';
+interface Props {
+	title: string;
+  language: string;
+}
+
+const { title, language } = Astro.props;
+---
+
+<!doctype html>
+<html lang={language}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-primary text-primary-contrast bg-img-starfield">
+		<slot />
+	</body>
+</html>
+

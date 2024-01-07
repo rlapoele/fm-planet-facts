@@ -1,0 +1,16 @@
+---
+interface Props {
+  selectedPlanetName: string;
+}
+
+const { selectedPlanetName } = Astro.props;
+---
+<header class="flex items-center justify-between h-[85px] px-[32px]">
+  <h2 class="font-h2-alt text-h2-alt uppercase">the planets</h2>
+  <nav>
+    <ul role="list">
+      <li role="listitem"
+          class="font-Spartan">mercury</li>
+    </ul>
+  </nav>
+</header>

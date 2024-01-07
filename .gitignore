@@ -16,6 +16,19 @@ dist
 ###############################################
 *.xd
 
+# generated types
+.astro/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
 .prettierignore
