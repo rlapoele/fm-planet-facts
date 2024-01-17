@@ -1,0 +1,70 @@
+---
+
+interface Props {
+  selectedPlanetName: string,
+  isSelected: boolean,
+  sectionIdAsString: string,
+  sectionLabel: string,
+  sectionShortLabel: string,
+  sectionPageLink: string
+}
+
+const {
+  selectedPlanetName,
+  isSelected,
+  sectionIdAsString,
+  sectionLabel,
+  sectionShortLabel,
+  sectionPageLink
+} = Astro.props;
+
+const classColorMap = {
+  'bg' : {
+    'mercury': 'md:bg-mercury',
+    'venus': 'md:bg-venus',
+    'earth': 'md:bg-earth',
+    'mars': 'md:bg-mars',
+    'jupiter': 'md:bg-jupiter',
+    'saturn': 'md:bg-saturn',
+    'uranus': 'md:bg-uranus',
+    'neptune': 'md:bg-neptune'
+  },
+  'border': {
+    'mercury': 'border-mercury',
+    'venus': 'border-venus',
+    'earth': 'border-earth',
+    'mars': 'border-mars',
+    'jupiter': 'border-jupiter',
+    'saturn': 'border-saturn',
+    'uranus': 'border-uranus',
+    'neptune': 'border-neptune'
+  }
+
+};
+
+---
+
+<li>
+  {
+    isSelected &&
+    <p class={`flex flex-row flex-nowrap items-center gap-1
+               h-3.125 md:h-2.5 lg:h-3
+               md:px-1.25 lg:px-1.25
+               text-primary-contrast font-h3 text-h3 text-center md:text-left
+               border-b-3 ${classColorMap['border'][selectedPlanetName]} md:border md:border-primary-contrast/20 ${classColorMap['bg'][selectedPlanetName]}`}>
+      <span class="opacity-50 hidden md:inline-block">{sectionIdAsString}</span><span class="uppercase flex-grow md:hidden">{sectionShortLabel}</span><span class="uppercase flex-grow hidden md:inline-block">{sectionLabel}</span>
+    </p>
+  }
+  {
+    !isSelected &&
+    <a href={sectionPageLink}
+       class="flex flex-row flex-nowrap items-center gap-1
+              h-3.125 md:h-2.5 lg:h-3
+              md:px-1.25 lg:px-1.25
+              text-primary-contrast no-underline font-h3 text-h3 text-center md:text-left
+              border-b-3 border-transparent md:border md:border-primary-contrast/20
+              md:hover:bg-primary-contrast/20 md:focus:bg-primary-contrast/20">
+      <span class="opacity-50 hidden md:inline-block">{sectionIdAsString}</span><span class="uppercase flex-grow md:hidden">{sectionShortLabel}</span><span class="uppercase flex-grow hidden md:inline-block">{sectionLabel}</span>
+    </a>
+  }
+</li>

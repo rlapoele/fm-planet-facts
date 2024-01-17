@@ -1,0 +1,50 @@
+---
+import {
+  SECTION_KEY_GEOLOGY, SECTION_KEY_OVERVIEW, SECTION_KEY_STRUCTURE,
+  PLANET_MERCURY, PLANET_VENUS, PLANET_EARTH, PLANET_MARS, PLANET_JUPITER, PLANET_SATURN, PLANET_URANUS, PLANET_NEPTUNE
+} from "../constants";
+
+
+
+
+interface Props {
+  cssClass: string,
+  selectedPlanetName: string,
+  selectedSectionName: string
+}
+
+const { cssClass, selectedPlanetName, selectedSectionName } = Astro.props;
+
+const sectionNameImageURLMap = {
+  [SECTION_KEY_OVERVIEW]: `/images/planet-${selectedPlanetName}.svg`,
+  [SECTION_KEY_STRUCTURE]: `/images/planet-${selectedPlanetName}-internal.svg`,
+  [SECTION_KEY_GEOLOGY]: `/images/geology-${selectedPlanetName}.png`
+};
+
+const cssClassPlanetNameSizesMap = {
+  [PLANET_MERCURY]: 'c_mercury-planet-size',
+  [PLANET_VENUS]: 'c-venus-planet-size',
+  [PLANET_EARTH]: 'c-earth-planet-size',
+  [PLANET_MARS]: 'c-mars-planet-size',
+  [PLANET_JUPITER]: 'c-jupiter-planet-size',
+  [PLANET_SATURN]: 'c-saturn-planet-size',
+  [PLANET_URANUS]: 'c-uranus-planet-size',
+  [PLANET_NEPTUNE]: 'c-neptune-planet-size'
+};
+
+---
+<figure class={`${cssClass} grid place-content-center relative w-full lg:w-47.5 h-19 md:h-28.75 lg:h-47.125`}>
+  {
+    SECTION_KEY_GEOLOGY !== selectedSectionName &&
+    <img class=`${cssClassPlanetNameSizesMap[selectedPlanetName]}` src={sectionNameImageURLMap[selectedSectionName]} alt={`${selectedPlanetName} ${selectedSectionName} illustration`}/>
+  }
+  {
+    SECTION_KEY_GEOLOGY === selectedSectionName &&
+    <img class=`${cssClassPlanetNameSizesMap[selectedPlanetName]}` src={sectionNameImageURLMap[SECTION_KEY_OVERVIEW]} alt={`${selectedPlanetName} ${selectedSectionName} illustration`}/>
+    <img class="c-embedded-planet" src={sectionNameImageURLMap[selectedSectionName]} alt={`${selectedPlanetName} ${selectedSectionName} illustration`}/>
+  }
+</figure>
+
+<!--
+top-[190px] md:top-[156px] lg:top-[372px]
+-->

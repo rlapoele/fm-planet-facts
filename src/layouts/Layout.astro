@@ -1,25 +1,36 @@
 ---
 import '../styles/index.css';
+
+import Banner from "../components/Banner.astro";
 interface Props {
 	title: string;
   language: string;
+  selectedPlanetName: string,
+  planetNavData: object[]
 }
 
-const { title, language } = Astro.props;
+const {
+  title,
+  language,
+  selectedPlanetName,
+  planetNavData
+} = Astro.props;
 ---
-
 <!doctype html>
 <html lang={language}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body class="bg-primary text-primary-contrast bg-img-starfield">
-		<slot />
+    <Banner selectedPlanetName={selectedPlanetName} planetNavData={planetNavData}/>
+    <main class="px-1.5 md:px-2.5 md:max-w-69.375 lg:px-0 md:mx-auto mb-3">
+      <slot />
+    </main>
 	</body>
 </html>
 

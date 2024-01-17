@@ -1,10 +1,17 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import Banner from '../components/Banner.astro';
----
+import {TITLE_DEFAULT, LANGUAGE_DEFAULT} from "../constants";
 
-<Layout title="Planet Facts" language="en">
-  <Banner/>
-	<main>
-	</main>
+
+const planets = await getCollection('planets');
+const sortedPlanets = planets.sort((a,b) => a.data.order - b.data.order);
+const planetNavData = sortedPlanets.map((planet) => { return { planetName: planet.data.name, planetPageLink: `/planets/${planet.data.name.toLowerCase()}` } } );
+---
+<Layout title={TITLE_DEFAULT}
+        language={LANGUAGE_DEFAULT}
+        selectedPlanetName=""
+        planetNavData={planetNavData}>
+  <p>Home</p>
 </Layout>
+

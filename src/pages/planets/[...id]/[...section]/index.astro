@@ -1,0 +1,78 @@
+---
+// ------
+// Imports.
+import { getCollection } from 'astro:content';
+import {
+  COLLECTION_PLANET,
+  SECTION_KEY_OVERVIEW, SECTION_KEY_STRUCTURE, SECTION_KEY_GEOLOGY,
+  FACT_KEY_ROTATION, FACT_KEY_REVOLUTION, FACT_KEY_RADIUS, FACT_KEY_TEMPERATURE,
+  FACT_LABEL_ROTATION, FACT_LABEL_REVOLUTION, FACT_LABEL_RADIUS, FACT_LABEL_TEMPERATURE, TITLE_DEFAULT, LANGUAGE_DEFAULT
+} from "../../../../constants";
+import Layout from "../../../../layouts/Layout.astro";
+import PlanetDetails from "../../../../components/PlanetDetails.astro";
+import Facts from "../../../../components/Facts.astro";
+
+
+// ------
+// Export - dynamic routing
+export async function getStaticPaths() {
+  const planets = await getCollection(COLLECTION_PLANET);
+  const sortedPlanets = planets.sort((a, b) => a.data.order - b.data.order);
+
+  let paramArray = [];
+
+  sortedPlanets.forEach((planet) => {
+    const id = planet.data.name.toLowerCase();
+    paramArray.push({ params: { id , section: SECTION_KEY_OVERVIEW } });
+    paramArray.push({ params: { id, section: SECTION_KEY_STRUCTURE } });
+    paramArray.push({ params: { id, section: SECTION_KEY_GEOLOGY } });
+    paramArray.push({ params: { id, section: undefined } });
+    paramArray.push({ params: { id: undefined, section: undefined }});
+  });
+
+  return paramArray;
+}
+
+// ------
+// Data retrieval & manipulation.
+const { id, section } = Astro.params;
+
+if ((id ?? '') === '') {
+  return Astro.redirect('/planets/mercury/overview');
+}
+
+if ((section ?? '') === '') {
+  return Astro.redirect(`/planets/${id}/overview`);
+}
+
+const capitalizedPlanetName = `${id.charAt(0).toUpperCase()}${id.slice(1)}`;
+const planets = await getCollection(COLLECTION_PLANET);
+const sortedPlanets = planets.sort((a, b) => a.data.order - b.data.order);
+
+const planetNavData = sortedPlanets.map((planet) => { return { planetName: planet.data.name, planetPageLink: `/planets/${planet.data.name.toLowerCase()}/${SECTION_KEY_OVERVIEW}` } } );
+
+const selectedPlanet= sortedPlanets.filter((planet) => planet.data.name.toLowerCase() === id )[0];
+
+const selectedSectionContent = selectedPlanet?.data?.[section ?? SECTION_KEY_OVERVIEW]?.content ?? '';
+const selectedSectionWikiLink = selectedPlanet?.data?.[section ?? SECTION_KEY_OVERVIEW]?.source ?? '';
+
+const planetFacts = [
+  { factLabel : FACT_LABEL_ROTATION, factValue: selectedPlanet?.data?.[FACT_KEY_ROTATION] ?? ''},
+  { factLabel : FACT_LABEL_REVOLUTION, factValue: selectedPlanet?.data?.[FACT_KEY_REVOLUTION] ?? ''},
+  { factLabel : FACT_LABEL_RADIUS, factValue: selectedPlanet?.data?.[FACT_KEY_RADIUS] ?? ''},
+  { factLabel : FACT_LABEL_TEMPERATURE, factValue: selectedPlanet?.data?.[FACT_KEY_TEMPERATURE] ?? ''},
+];
+
+---
+<Layout title={`${TITLE_DEFAULT} - ${capitalizedPlanetName}`}
+        language={LANGUAGE_DEFAULT}
+        selectedPlanetName={id}
+        planetNavData={planetNavData} >
+  <PlanetDetails cssClass=""
+                 selectedPlanetName={id}
+                 selectedSectionName={section}
+                 selectedSectionContent={selectedSectionContent}
+                 selectedSectionWikiLink={selectedSectionWikiLink}/>
+  <Facts class="w-full mb-3" facts={planetFacts} selectedPlanetName={id}/>
+</Layout>
+

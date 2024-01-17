@@ -1,16 +1,68 @@
 ---
+import BannerNavItem from "./BannerNavItem.astro";
+import {
+  PLANET_EARTH,
+  PLANET_JUPITER,
+  PLANET_MARS,
+  PLANET_MERCURY, PLANET_NEPTUNE,
+  PLANET_SATURN,
+  PLANET_URANUS,
+  PLANET_VENUS
+} from "../constants";
+
+interface NavItemData {
+  planetName: string,
+  planetPageLink: string
+}
 interface Props {
+  planetNavData: NavItemData[];
   selectedPlanetName: string;
 }
 
-const { selectedPlanetName } = Astro.props;
+const classColorMap = {
+  'normal': {
+    [PLANET_MERCURY]: 'border-mercury/0',
+    [PLANET_VENUS]: 'border-venus/0',
+    [PLANET_EARTH]: 'border-earth/0',
+    [PLANET_MARS]: 'border-mars/0',
+    [PLANET_JUPITER]: 'border-jupiter/0',
+    [PLANET_SATURN]: 'border-saturn/0',
+    [PLANET_URANUS]: 'border-uranus/0',
+    [PLANET_NEPTUNE]: 'border-neptune/0'
+  },
+  'hover': {
+    [PLANET_MERCURY]: 'hover:border-mercury/100',
+    [PLANET_VENUS]: 'hover:border-venus/100',
+    [PLANET_EARTH]: 'hover:border-earth/100',
+    [PLANET_MARS]: 'hover:border-mars/100',
+    [PLANET_JUPITER]: 'hover:border-jupiter/100',
+    [PLANET_SATURN]: 'hover:border-saturn/100',
+    [PLANET_URANUS]: 'hover:border-uranus/100',
+    [PLANET_NEPTUNE]: 'hover:border-neptune/100'
+  }
+
+};
+
+const {
+  planetNavData,
+  selectedPlanetName
+} = Astro.props;
 ---
-<header class="flex items-center justify-between h-[85px] px-[32px]">
-  <h2 class="font-h2-alt text-h2-alt uppercase">the planets</h2>
-  <nav>
-    <ul role="list">
-      <li role="listitem"
-          class="font-Spartan">mercury</li>
+<header class="flex items-center justify-between md:flex-col md:justify-around lg:flex-row lg:justify-between h-4.3125 md:h-10 lg:h-5.375 px-2 border-b border-primary-contrast/20">
+  <p class="font-h2-alt text-h2-alt uppercase">The planets</p>
+  <nav class="lg:h-full">
+    <ul class="hidden md:flex lg:h-full md:gap-2"
+        role="list">
+      {
+        planetNavData.map((planetNavDataItem) =>
+          <li role="listitem"
+              class={`flex items-center h-full border-t-4 transition duration-300 ease-in-out ${classColorMap['normal'][planetNavDataItem.planetName.toLowerCase()]} ${classColorMap['hover'][planetNavDataItem.planetName.toLowerCase()]} font-h4 text-h4 uppercase text-primary-contrast/75 hover:text-primary-contrast/100`}>
+            <BannerNavItem selectedPlanetName={selectedPlanetName}
+                           planetName={planetNavDataItem.planetName}
+                           planetPageLink={planetNavDataItem.planetPageLink}/>
+          </li>
+        )
+      }
     </ul>
   </nav>
 </header>

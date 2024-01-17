@@ -1,5 +1,4 @@
 /* Font declarations */
-/* Font declarations */
 @font-face {
   font-family: 'Antonio';
   font-style: normal;
@@ -7,13 +6,13 @@
   src: url('/fonts/Antonio/static/Antonio-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Spartan';
   font-style: italic;
   font-weight: 300;
   src: url('/fonts/League_Spartan/static/LeagueSpartan-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Spartan';
   font-style: italic;
   font-weight: 700;
   src: url('/fonts/League_Spartan/static/LeagueSpartan-Bold.ttf') format('truetype');
@@ -40,47 +39,250 @@
     --fmpf-color-green: 169deg 73% 44%;
     --fmpf-color-blue: 222deg 87% 56%;
 
-    --fmpf-font-family-antonio: 'Antonio';
-    --fmpf-font-family-spartan: 'Spartan';
+    --fmpf-font-stack-antonio: 'Antonio', sans-serif;
+    --fmpf-font-stack-spartan: 'Spartan', sans-serif;
 
-    --fmpf-h1-font-family: var(--fmpf-font-family-antonio);
-    --fmpf-h1-font-size: calc(80rem / 16);
-    --fmpf-h1-line-height: calc(103rem / 16);
+    --fmpf-font-weight-regular: 400;
+    --fmpf-font-weight-bold: 700;
+
+    --fmpf-h1-font-stack: var(--fmpf-font-stack-antonio); /* planet name */
+    --fmpf-h1-font-size: calc(40rem / 16);
+    --fmpf-h1-line-height: normal;
     --fmpf-h1-letter-spacing: normal;
     --fmpf-h1-font-weight: 400;
 
-    --fmpf-h2-font-family: var(--fmpf-font-family-antonio);
-    --fmpf-h2-font-size: calc(40rem / 16);
-    --fmpf-h2-line-height: calc(52rem / 16);
-    --fmpf-h2-letter-spacing: calc(-1.5rem / 16);
+    --fmpf-h2-font-stack: var(--fmpf-font-stack-antonio); /* fact value */
+    --fmpf-h2-font-size: calc(20rem / 16);
+    --fmpf-h2-line-height: normal;
+    --fmpf-h2-letter-spacing: calc(-0.75rem / 16);
     --fmpf-h2-font-weight: 400;
 
-    --fmpf-h2-alt-font-family: var(--fmpf-font-family-antonio);
+    --fmpf-h2-alt-font-stack: var(--fmpf-font-stack-antonio); /* banner title (THE PLANETS) */
     --fmpf-h2-alt-font-size: calc(28rem / 16);
     --fmpf-h2-alt-line-height: normal;
     --fmpf-h2-alt-letter-spacing: calc(-1.05rem / 16);
     --fmpf-h2-alt-font-weight: 400;
 
-    --fmpf-h3-font-family: var(--fmpf-font-family-spartan);
-    --fmpf-h3-font-size: calc(12rem / 16);
+    --fmpf-h3-font-stack: var(--fmpf-font-stack-spartan); /* characteristics nav items (overview, structure, etc., ...) */
+    --fmpf-h3-font-size: calc(10rem / 16);
     --fmpf-h3-line-height: calc(25rem / 16);
-    --fmpf-h3-letter-spacing: calc(2.6rem / 16);
+    --fmpf-h3-letter-spacing: calc(1.929rem / 16);
     --fmpf-h3-font-weight: 700;
 
-    --fmpf-h4-font-family: var(--fmpf-font-family-spartan);
+    --fmpf-h4-font-stack: var(--fmpf-font-stack-spartan); /* top nav items (mercury, etc., ...) */
     --fmpf-h4-font-size: calc(11rem / 16);
     --fmpf-h4-line-height: calc(25rem / 16);
     --fmpf-h4-letter-spacing: calc(1rem / 16);
     --fmpf-h4-font-weight: 700;
 
-    --fmpf-body-font-family: var(--fmpf-font-family-spartan);
+    --fmpf-h4-alt-font-stack: var(--fmpf-font-stack-spartan); /* fact title */
+    --fmpf-h4-alt-font-size: calc(14rem / 16);
+    --fmpf-h4-alt-line-height: calc(25rem / 16);
+    --fmpf-h4-alt-letter-spacing: calc(1rem / 16);
+    --fmpf-h4-alt-font-weight: 700;
+
+    --fmpf-body-font-stack: var(--fmpf-font-stack-spartan);
     --fmpf-body-font-size: calc(14rem / 16);
-    --fmpf-body-line-height: calc(25rem / 16);
+    --fmpf-body-line-height: calc(22rem / 16);
     --fmpf-body-letter-spacing: normal;
     --fmpf-body-font-weight: 400;
 
-
-
     --fmpf-bg-img-starfield: url('/images/background-stars.svg');
+
+    --fmpf-length-0_0625: .0625rem; /* 1px */
+    --fmpf-length-0_125: .125rem; /* 2px */
+    --fmpf-length-0_1875: .1875rem; /* 3px */
+    --fmpf-length-0_25: .25rem; /* 4px */
+    --fmpf-length-0_375: .375rem; /* 6px */
+    --fmpf-length-0_5: .5rem; /* 8px */
+    --fmpf-length-0_75: .75rem; /* 12px */
+    --fmpf-length-0_9375: .9375rem; /* 15px */
+    --fmpf-length-1: 1rem; /* 16px */
+    --fmpf-length-1_125: 1.125rem; /* 18px */
+    --fmpf-length-1_1875: 1.1875rem; /* */
+    --fmpf-length-1_25: 1.25rem;
+    --fmpf-length-1_5: 1.5rem;
+    --fmpf-length-1_75: 1.75rem;
+    --fmpf-length-2: 2rem;
+    --fmpf-length-2_25: 2.25rem;
+    --fmpf-length-2_5: 2.5rem;
+    --fmpf-length-3: 3rem;
+    --fmpf-length-3_125: 3.125rem;
+    --fmpf-length-3_5: 3.5rem;
+    --fmpf-length-4: 4rem;
+    --fmpf-length-4_3125: 4.3125rem;
+    --fmpf-length-5: 5rem;
+    --fmpf-length-5_25: 5.25rem;
+    --fmpf-length-5_375: 5.375rem;
+    --fmpf-length-8_75: 8.75rem;
+    --fmpf-length-10: 10rem;
+    --fmpf-length-10_25: 10.25rem;
+    --fmpf-length-11_25: 11.25rem;
+    --fmpf-length-17_5: 17.5rem;
+    --fmpf-length-19: 19rem;
+    --fmpf-length-21_1875: 21.1875rem;
+    --fmpf-length-21_875: 21.875rem;
+    --fmpf-length-28_25: 28.25rem;
+    --fmpf-length-28_75: 28.75rem;
+    --fmpf-length-29: 29rem;
+    --fmpf-length-35_25: 35.25rem;
+    --fmpf-length-47_125: 47.125rem;
+    --fmpf-length-47_5: 47.5rem;
+    --fmpf-length-69_375: 69.375rem;
+
   }
+
+  @media screen(md) {
+    :root {
+      --fmpf-h1-font-size: calc(48rem / 16);
+      --fmpf-h1-line-height: normal;
+      --fmpf-h1-letter-spacing: normal;
+      --fmpf-h1-font-weight: 400;
+
+      --fmpf-h2-font-size: calc(24rem / 16);
+      --fmpf-h2-line-height: normal;
+      --fmpf-h2-letter-spacing: calc(-0.9rem / 16);
+      --fmpf-h2-font-weight: 400;
+
+      --fmpf-h4-alt-font-size: calc(10rem / 16);
+      --fmpf-h4-alt-line-height: calc(22rem / 16);
+      --fmpf-h4-alt-letter-spacing: calc(0.727rem / 16);
+      --fmpf-h4-alt-font-weight: 700;
+
+    }
+  }
+
+  @media screen(lg) {
+    :root {
+      --fmpf-h1-font-size: calc(80rem / 16);
+      --fmpf-h1-line-height: calc(103rem / 16);
+      --fmpf-h1-letter-spacing: normal;
+      --fmpf-h1-font-weight: 400;
+
+      --fmpf-h2-font-size: calc(40rem / 16);
+      --fmpf-h2-line-height: calc(52rem / 16);
+      --fmpf-h2-letter-spacing: calc(-1.5rem / 16);
+      --fmpf-h2-font-weight: 400;
+
+      --fmpf-h2-alt-font-size: calc(28rem / 16);
+      --fmpf-h2-alt-line-height: normal;
+      --fmpf-h2-alt-letter-spacing: calc(-1.05rem / 16);
+      --fmpf-h2-alt-font-weight: 400;
+
+      --fmpf-h3-font-size: calc(12rem / 16);
+      --fmpf-h3-line-height: calc(25rem / 16);
+      --fmpf-h3-letter-spacing: calc(2.6rem / 16);
+      --fmpf-h3-font-weight: 700;
+
+      --fmpf-h4-font-size: calc(15rem / 16);
+      --fmpf-h4-line-height: calc(25rem / 16);
+      --fmpf-h4-letter-spacing: calc(1.364rem / 16);
+      --fmpf-h4-font-weight: 700;
+
+      --fmpf-h4-alt-font-size: calc(12rem / 16);
+      --fmpf-h4-alt-line-height: calc(28rem / 16);
+      --fmpf-h4-alt-letter-spacing: calc(1rem / 16);
+      --fmpf-h4-alt-font-weight: 700;
+
+      --fmpf-body-font-size: calc(16rem / 16);
+      --fmpf-body-line-height: calc(25rem / 16);
+      --fmpf-body-letter-spacing: normal;
+      --fmpf-body-font-weight: 400;
+    }
+  }
+}
+
+@layer components {
+  .c_mercury-planet-size {
+    width: calc(111rem / 16);
+  }
+  .c-venus-planet-size {
+    width: calc(154rem / 16);
+  }
+  .c-earth-planet-size {
+    width: calc(173rem / 16);
+  }
+  .c-mars-planet-size {
+    width: calc(129rem / 16);
+  }
+  .c-jupiter-planet-size {
+    width: calc(224rem / 16);
+  }
+  .c.saturn-planet-size {
+    width: calc(256rem / 16);
+  }
+  .c-uranus-planet-size {
+    width: calc(176rem / 16);
+  }
+  .c-neptune-planet-size {
+    width: calc(173rem / 16);
+  }
+
+  .c-embedded-planet {
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2;
+    width: calc(56rem / 16);
+    --tw-translate-y: 40.5%;
+  }
+
+  @media screen(md) {
+    .c_mercury-planet-size {
+      width: calc(184rem / 16);
+    }
+    .c-venus-planet-size {
+      width: calc(253rem / 16);
+    }
+    .c-earth-planet-size {
+      width: calc(285rem / 16);
+    }
+    .c-mars-planet-size {
+      width: calc(213rem / 16);
+    }
+    .c-jupiter-planet-size {
+      width: calc(369rem / 16);
+    }
+    .c.saturn-planet-size {
+      width: calc(422rem / 16);
+    }
+    .c-uranus-planet-size {
+      width: calc(290rem / 16);
+    }
+    .c-neptune-planet-size {
+      width: calc(285rem / 16);
+    }
+
+    .c-embedded-planet {
+      width: calc(87rem / 16);
+    }
+  }
+
+  @media screen(lg) {
+    .c_mercury-planet-size {
+      width: calc(290rem / 16);
+    }
+    .c-venus-planet-size {
+      width: calc(400rem / 16);
+    }
+    .c-earth-planet-size {
+      width: calc(450rem / 16);
+    }
+    .c-mars-planet-size {
+      width: calc(336rem / 16);
+    }
+    .c-jupiter-planet-size {
+      width: calc(582rem / 16);
+    }
+    .c.saturn-planet-size {
+      width: calc(666rem / 16);
+    }
+    .c-uranus-planet-size {
+      width: calc(458rem / 16);
+    }
+    .c-neptune-planet-size {
+      width: calc(450rem / 16);
+    }
+    .c-embedded-planet {
+      width: calc(163rem / 16);
+    }
+  }
+
 }

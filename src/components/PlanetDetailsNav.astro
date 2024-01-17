@@ -1,0 +1,52 @@
+---
+import {
+  COLLECTION_PLANET,
+  SECTION_KEY_OVERVIEW, SECTION_KEY_STRUCTURE, SECTION_KEY_GEOLOGY,
+  SECTION_LABEL_OVERVIEW, SECTION_LABEL_STRUCTURE, SECTION_LABEL_GEOLOGY,
+  SECTION_SHORT_LABEL_OVERVIEW, SECTION_SHORT_LABEL_STRUCTURE, SECTION_SHORT_LABEL_GEOLOGY
+} from '../constants';
+import PlanetDetailsNavItem from "./PlanetDetailsNavItem.astro";
+
+interface Props {
+  selectedPlanetName: string,
+  selectedSectionName: string
+}
+
+const classColorMap = {
+  'mercury': 'bg-mercury',
+  'venus': 'bg-venus',
+  'earth': 'bg-earth',
+  'mars': 'bg-mars',
+  'jupiter': 'bg-jupiter',
+  'saturn': 'bg-saturn',
+  'uranus': 'bg-uranus',
+  'neptune': 'bg-neptune',
+};
+
+const { selectedPlanetName, selectedSectionName } = Astro.props;
+
+---
+
+<ul class="grid grid-cols-3 md:grid md:grid-cols-1 md:grid-rows-3 gap-2 md:gap-1">
+  <PlanetDetailsNavItem selectedPlanetName= {selectedPlanetName}
+                        isSelected={selectedSectionName === SECTION_KEY_OVERVIEW}
+                        sectionIdAsString="01"
+                        sectionLabel={SECTION_LABEL_OVERVIEW}
+                        sectionShortLabel={SECTION_SHORT_LABEL_OVERVIEW}
+                        sectionPageLink={`/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_OVERVIEW}`} />
+
+  <PlanetDetailsNavItem selectedPlanetName= {selectedPlanetName}
+                        isSelected={selectedSectionName === SECTION_KEY_STRUCTURE}
+                        sectionIdAsString="02"
+                        sectionLabel={SECTION_LABEL_STRUCTURE}
+                        sectionShortLabel={SECTION_SHORT_LABEL_STRUCTURE}
+                        sectionPageLink={`/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_STRUCTURE}`} />
+
+  <PlanetDetailsNavItem selectedPlanetName= {selectedPlanetName}
+                        isSelected={selectedSectionName === SECTION_KEY_GEOLOGY}
+                        sectionIdAsString="03"
+                        sectionLabel={SECTION_LABEL_GEOLOGY}
+                        sectionShortLabel={SECTION_SHORT_LABEL_GEOLOGY}
+                        sectionPageLink={`/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_GEOLOGY}`} />
+
+</ul>

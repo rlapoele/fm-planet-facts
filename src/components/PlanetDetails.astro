@@ -1,0 +1,47 @@
+---
+import PlanetDetailsNav from "./PlanetDetailsNav.astro";
+import PlanetSectionDetails from "./PlanetSectionDetails.astro";
+import PlanetIllustration from "./PlanetIllustration.astro";
+interface Props {
+  cssClass: string,
+  selectedPlanetName: string,
+  selectedSectionName: string,
+  selectedSectionContent: string,
+  selectedSectionWikiLink: string
+}
+
+const {
+  cssClass,
+  selectedPlanetName,
+  selectedSectionName,
+  selectedSectionContent,
+  selectedSectionWikiLink
+} = Astro.props;
+
+---
+<div class={`${cssClass}`}>
+
+  <nav role="navigation"
+       class="md:hidden">
+    <PlanetDetailsNav selectedPlanetName={selectedPlanetName}
+                      selectedSectionName={selectedSectionName}/>
+    <div class="-mx-1.5 block h-0.0625 md:hidden bg-primary-contrast/20"/>
+  </nav>
+
+  <section class="flex flex-col lg:flex-row lg:flex-nowrap lg:items-center lg:justify-between mb-1.75 lg:mb-0">
+    <PlanetIllustration cssClass="flex-shrink-0 flex-grow-0"
+                        selectedPlanetName={selectedPlanetName}
+                        selectedSectionName={selectedSectionName}/>
+    <div class="flex-shrink-0 flex flex-col md:flex-row md:items-center md:justify-between lg:flex-col lg:gap-2.5">
+      <PlanetSectionDetails cssClass="w-full md:w-21.1875 lg:w-21.875"
+                            selectedPlanetName={selectedPlanetName}
+                            selectedSectionContent={selectedSectionContent}
+                            selectedSectionWikiLink={selectedSectionWikiLink}/>
+      <nav role="navigation"
+           class="hidden md:block md:w-17.5 lg:w-21.875">
+        <PlanetDetailsNav selectedPlanetName={selectedPlanetName}
+                          selectedSectionName={selectedSectionName}/>
+      </nav>
+    </div>
+  </section>
+</div>

@@ -905,6 +905,18 @@ autoprefixer@^10.4.15:
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
 
+autoprefixer@^10.4.17:
+  version "10.4.17"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.17.tgz#35cd5695cbbe82f536a50fa025d561b01fdec8be"
+  integrity sha512-/cpVNRLSfhOtcGflT13P2794gVSgmPgTR+erw5ifnMLZb0UnSlkK4tquLmkd3BhA+nLo5tX8Cu0upUsGKvKbmg==
+  dependencies:
+    browserslist "^4.22.2"
+    caniuse-lite "^1.0.30001578"
+    fraction.js "^4.3.7"
+    normalize-range "^0.1.2"
+    picocolors "^1.0.0"
+    postcss-value-parser "^4.2.0"
+
 axobject-query@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-4.0.0.tgz#04a4c90dce33cc5d606c76d6216e3b250ff70dab"
@@ -1006,6 +1018,11 @@ caniuse-lite@^1.0.30001538, caniuse-lite@^1.0.30001565:
   version "1.0.30001575"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001575.tgz#da7cf3785bd6ad75621d2e82b05a015eacf78d2b"
   integrity sha512-VE+TSRJsWdtwTheYnrQikhGWlvJp+4lunXBadY66YIc+itIHm7y9d0NSA150Eh6mNY6d1S/B+fitPr9OzHJc6Q==
+
+caniuse-lite@^1.0.30001578:
+  version "1.0.30001578"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001578.tgz#11741580434ce60aae4b4a9abee9f9f8d7bf5be5"
+  integrity sha512-J/jkFgsQ3NEl4w2lCoM9ZPxrD+FoBNJ7uJUpGVjIg/j0OwJosWM36EPDv+Yyi0V4twBk9pPmlFS+PLykgEvUmg==
 
 ccount@^2.0.0:
   version "2.0.1"
@@ -1429,7 +1446,7 @@ foreground-child@^3.1.0:
     cross-spawn "^7.0.0"
     signal-exit "^4.0.1"
 
-fraction.js@^4.3.6:
+fraction.js@^4.3.6, fraction.js@^4.3.7:
   version "4.3.7"
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
@@ -2648,6 +2665,13 @@ postcss-selector-parser@^6.0.11:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
+postcss-sort-media-queries@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-sort-media-queries/-/postcss-sort-media-queries-5.2.0.tgz#4556b3f982ef27d3bac526b99b6c0d3359a6cf97"
+  integrity sha512-AZ5fDMLD8SldlAYlvi8NIqo0+Z8xnXU2ia0jxmuhxAU+Lqt9K+AlmLNJ/zWEnE9x+Zx3qL3+1K20ATgNOr3fAA==
+  dependencies:
+    sort-css-media-queries "2.2.0"
+
 postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
@@ -3014,6 +3038,11 @@ sisteransi@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
+
+sort-css-media-queries@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/sort-css-media-queries/-/sort-css-media-queries-2.2.0.tgz#aa33cf4a08e0225059448b6c40eddbf9f1c8334c"
+  integrity sha512-0xtkGhWCC9MGt/EzgnvbbbKhqWjl1+/rncmhTh5qCpbYguXh6S/qwePfv/JQ8jePXXmqingylxoC49pCkSPIbA==
 
 source-map-js@^1.0.2:
   version "1.0.2"

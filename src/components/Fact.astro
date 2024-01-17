@@ -1,2 +1,47 @@
 ---
+interface Props {
+  factLabel: string,
+  factValue: string,
+  selectedPlanetName: string
+}
+
+const { factLabel, factValue, selectedPlanetName } = Astro.props;
+
+let factValueNumber, factValueUnit;
+
+if(factValue.indexOf(' ') > -1) {
+  const factValues = factValue.split(' ');
+  factValueNumber = factValues[0];
+  factValueUnit = ` ${factValues[1]}`;
+}
+else if(factValue.indexOf('°') > -1) {
+    const factValues = factValue.split('°');
+    factValueNumber = factValues[0];
+    factValueUnit = `°${factValues[1]}`;
+  }
+
+const classColorMap = {
+    'mercury': 'text-mercury',
+    'venus': 'text-venus',
+    'earth': 'text-earth',
+    'mars': 'text-mars',
+    'jupiter': 'text-jupiter',
+    'saturn': 'text-saturn',
+    'uranus': 'text-uranus',
+    'neptune': 'text-neptune',
+};
+
 ---
+<div class="flex-grow flex-shrink flex flex-row items-center justify-between h-3 border border-primary-contrast/20 px-1.5 py-1 uppercase
+            md:flex-col md:px-1 md:items-start md:h-auto
+            lg:px-1.5 lg:py-1.25">
+  <p class="font-h4-alt text-h4-alt text-primary-contrast/50">{factLabel}</p>
+  {
+    !factValueUnit &&
+    <p class="font-h2 text-h2 text-primary-contrast">{factValue}</p>
+  }
+  {
+    !!factValueUnit &&
+    <p class="font-h2 text-h2 text-primary-contrast"><span>{factValueNumber}</span><span class={classColorMap[selectedPlanetName]}>{factValueUnit}</span></p>
+  }
+</div>

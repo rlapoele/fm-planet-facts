@@ -15,7 +15,7 @@ _Your users should be able to:_
 - _See hover states for all interactive elements on the page_
 
 
-I've implemented this using [#vite](https://vitejs.dev/), [#solidjs](https://www.solidjs.com/) and [#tailwindcss](https://tailwindcss.com/).
+I've implemented this using [#astro](https://astro.build/), [#solidjs](https://www.solidjs.com/) and [#tailwindcss](https://tailwindcss.com/).
 
 Hope you like it!
 
