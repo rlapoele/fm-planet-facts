@@ -1,17 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
-import {TITLE_DEFAULT, LANGUAGE_DEFAULT} from "../constants";
-
-
-const planets = await getCollection('planets');
-const sortedPlanets = planets.sort((a,b) => a.data.order - b.data.order);
-const planetNavData = sortedPlanets.map((planet) => { return { planetName: planet.data.name, planetPageLink: `/planets/${planet.data.name.toLowerCase()}` } } );
+  return Astro.redirect('/planets/mercury/overview');
 ---
-<Layout title={TITLE_DEFAULT}
-        language={LANGUAGE_DEFAULT}
-        selectedPlanetName=""
-        planetNavData={planetNavData}>
-  <p>Home</p>
-</Layout>
+
 

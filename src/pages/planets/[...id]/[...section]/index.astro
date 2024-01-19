@@ -27,7 +27,7 @@ export async function getStaticPaths() {
     paramArray.push({ params: { id, section: SECTION_KEY_STRUCTURE } });
     paramArray.push({ params: { id, section: SECTION_KEY_GEOLOGY } });
     paramArray.push({ params: { id, section: undefined } });
-    paramArray.push({ params: { id: undefined, section: undefined }});
+    paramArray.push({ params: { id: undefined, section: undefined } });
   });
 
   return paramArray;
