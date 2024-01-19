@@ -208,7 +208,7 @@
   .c-jupiter-planet-size {
     width: calc(224rem / 16);
   }
-  .c.saturn-planet-size {
+  .c-saturn-planet-size {
     width: calc(256rem / 16);
   }
   .c-uranus-planet-size {
@@ -240,7 +240,7 @@
     .c-jupiter-planet-size {
       width: calc(369rem / 16);
     }
-    .c.saturn-planet-size {
+    .c-saturn-planet-size {
       width: calc(422rem / 16);
     }
     .c-uranus-planet-size {
@@ -271,7 +271,7 @@
     .c-jupiter-planet-size {
       width: calc(582rem / 16);
     }
-    .c.saturn-planet-size {
+    .c-saturn-planet-size {
       width: calc(666rem / 16);
     }
     .c-uranus-planet-size {
