@@ -32,14 +32,14 @@ const {
     <meta name="author" content="Renaud Lapoële" />
     <meta name="keywords" content={keywords} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" />
+		<link rel="icon" type="image/png" href="/fm-planet-facts/icons/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}{description}</title>
     <ViewTransitions/>
 	</head>
 	<body class="bg-primary text-primary-contrast bg-img-starfield">
     <Banner selectedPlanetName={selectedPlanetName} planetNavData={planetNavData}/>
-    <main class="px-1.5 md:px-2.5 md:max-w-69.375 lg:px-0 md:mx-auto mb-3">
+    <main role="main" class="px-1.5 md:px-2.5 md:max-w-69.375 lg:px-0 md:mx-auto mb-3">
       <slot />
     </main>
 	</body>
