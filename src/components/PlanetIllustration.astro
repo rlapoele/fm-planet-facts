@@ -32,19 +32,24 @@ const cssClassPlanetNameSizesMap = {
   [PLANET_NEPTUNE]: 'c-neptune-planet-size'
 };
 
+const imageIllustrationCaption = `${selectedPlanetName} ${selectedSectionName} illustration.`;
+const imageEmbeddedPhotoCaption = `${selectedPlanetName} embedded photo.`;
+
 ---
 <figure class={`${cssClass} grid place-content-center relative w-full lg:w-47.5 h-19 md:h-28.75 lg:h-47.125`}>
   {
     SECTION_KEY_GEOLOGY !== selectedSectionName &&
-    <img class=`${cssClassPlanetNameSizesMap[selectedPlanetName]}` src={sectionNameImageURLMap[selectedSectionName]} alt={`${selectedPlanetName} ${selectedSectionName} illustration`}/>
+    <img class=`${cssClassPlanetNameSizesMap[selectedPlanetName]}`
+         src={sectionNameImageURLMap[selectedSectionName]}
+         alt={imageIllustrationCaption}
+         aria-label={imageIllustrationCaption}/>
   }
   {
     SECTION_KEY_GEOLOGY === selectedSectionName &&
     <img class=`${cssClassPlanetNameSizesMap[selectedPlanetName]}` src={sectionNameImageURLMap[SECTION_KEY_OVERVIEW]} alt={`${selectedPlanetName} ${selectedSectionName} illustration`}/>
-    <img class="c-embedded-planet" src={sectionNameImageURLMap[selectedSectionName]} alt={`${selectedPlanetName} ${selectedSectionName} illustration`}/>
+    <img class="c-embedded-planet" src={sectionNameImageURLMap[selectedSectionName]}
+         alt={imageEmbeddedPhotoCaption}
+         aria-label={imageEmbeddedPhotoCaption}/>
   }
 </figure>
 
-<!--
-top-[190px] md:top-[156px] lg:top-[372px]
--->
