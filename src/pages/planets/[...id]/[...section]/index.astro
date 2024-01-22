@@ -4,9 +4,20 @@
 import { getCollection } from 'astro:content';
 import {
   COLLECTION_PLANET,
-  SECTION_KEY_OVERVIEW, SECTION_KEY_STRUCTURE, SECTION_KEY_GEOLOGY,
-  FACT_KEY_ROTATION, FACT_KEY_REVOLUTION, FACT_KEY_RADIUS, FACT_KEY_TEMPERATURE,
-  FACT_LABEL_ROTATION, FACT_LABEL_REVOLUTION, FACT_LABEL_RADIUS, FACT_LABEL_TEMPERATURE, TITLE_DEFAULT, LANGUAGE_DEFAULT
+  SECTION_KEY_OVERVIEW,
+  SECTION_KEY_STRUCTURE,
+  SECTION_KEY_GEOLOGY,
+  FACT_KEY_ROTATION,
+  FACT_KEY_REVOLUTION,
+  FACT_KEY_RADIUS,
+  FACT_KEY_TEMPERATURE,
+  FACT_LABEL_ROTATION,
+  FACT_LABEL_REVOLUTION,
+  FACT_LABEL_RADIUS,
+  FACT_LABEL_TEMPERATURE,
+  TITLE_DEFAULT,
+  LANGUAGE_DEFAULT,
+  DESCRIPTION_DEFAULT, KEYWORDS_DEFAULT
 } from "../../../../constants";
 import Layout from "../../../../layouts/Layout.astro";
 import PlanetDetails from "../../../../components/PlanetDetails.astro";
@@ -38,18 +49,18 @@ export async function getStaticPaths() {
 const { id, section } = Astro.params;
 
 if ((id ?? '') === '') {
-  return Astro.redirect('/planets/mercury/overview');
+  return Astro.redirect('/fm-planet-facts/planets/mercury/overview');
 }
 
 if ((section ?? '') === '') {
-  return Astro.redirect(`/planets/${id}/overview`);
+  return Astro.redirect(`/fm-planet-facts/planets/${id}/overview`);
 }
 
 const capitalizedPlanetName = `${id.charAt(0).toUpperCase()}${id.slice(1)}`;
 const planets = await getCollection(COLLECTION_PLANET);
 const sortedPlanets = planets.sort((a, b) => a.data.order - b.data.order);
 
-const planetNavData = sortedPlanets.map((planet) => { return { planetName: planet.data.name, planetPageLink: `/planets/${planet.data.name.toLowerCase()}/${SECTION_KEY_OVERVIEW}` } } );
+const planetNavData = sortedPlanets.map((planet) => { return { planetName: planet.data.name, planetPageLink: `/fm-planet-facts/planets/${planet.data.name.toLowerCase()}/${SECTION_KEY_OVERVIEW}` } } );
 
 const selectedPlanet= sortedPlanets.filter((planet) => planet.data.name.toLowerCase() === id )[0];
 
@@ -64,8 +75,10 @@ const planetFacts = [
 ];
 
 ---
-<Layout title={`${TITLE_DEFAULT} - ${capitalizedPlanetName}`}
+<Layout title={`${TITLE_DEFAULT}: ${capitalizedPlanetName}`}
         language={LANGUAGE_DEFAULT}
+        description={DESCRIPTION_DEFAULT}
+        keywords={KEYWORDS_DEFAULT}
         selectedPlanetName={id}
         planetNavData={planetNavData} >
   <PlanetDetails cssClass=""

@@ -1,17 +1,25 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import '../styles/index.css';
-
 import Banner from "../components/Banner.astro";
-interface Props {
-	title: string;
-  language: string;
-  selectedPlanetName: string,
-  planetNavData: object[]
-}
 
+interface NavItemData {
+  planetName: string,
+  planetPageLink: string
+}
+interface Props {
+  title: string,
+  language: string,
+  description: string,
+  keywords: string,
+  selectedPlanetName: string,
+  planetNavData: NavItemData[]
+}
 const {
   title,
   language,
+  description,
+  keywords,
   selectedPlanetName,
   planetNavData
 } = Astro.props;
@@ -20,11 +28,14 @@ const {
 <html lang={language}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
+    <meta name="author" content="Renaud Lapoële" />
+    <meta name="keywords" content={keywords} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{title}{description}</title>
+    <ViewTransitions/>
 	</head>
 	<body class="bg-primary text-primary-contrast bg-img-starfield">
     <Banner selectedPlanetName={selectedPlanetName} planetNavData={planetNavData}/>

@@ -68,21 +68,21 @@ const {
   selectedPlanetName
 } = Astro.props;
 ---
-<header class="relative flex items-center justify-between md:flex-col md:justify-around lg:flex-row lg:justify-between h-4.3125 md:h-10 lg:h-5.375 px-1.5 md:px-2.5 border-b border-primary-contrast/20">
-  <p class="font-h2-alt text-h2-alt uppercase">The planets</p>
+<header class="relative flex items-center justify-between md:flex-col lg:flex-row lg:justify-between h-4.3125 md:h-10 lg:h-5.375 px-1.5 md:px-2.5 border-b border-primary-contrast/20">
+  <p class="font-h2-alt text-h2-alt uppercase md:pt-2 lg:pt-0">The planets</p>
   <nav class="lg:h-full flex flex-row items-center">
-    <ul class="hidden md:flex lg:h-full md:gap-2"
+    <ul class="hidden md:flex md:h-4.3125 lg:h-full md:gap-2"
         role="list">
       {
         planetNavData.map((planetNavDataItem) => {
           const planetName = planetNavDataItem.planetName.toLowerCase();
           return selectedPlanetName !== planetName ?
             <li role="listitem"
-                class={`flex items-center h-full border-t-4 transition duration-300 ease-in-out ${classBorderColorMap['normal'][planetNavDataItem.planetName.toLowerCase()]} ${classBorderColorMap['hover'][planetNavDataItem.planetName.toLowerCase()]} font-h4 text-h4 uppercase text-primary-contrast/75 hover:text-primary-contrast/100`}>
+                class={`flex items-center h-full md:border-b-4 lg:border-b-0 lg:border-t-4 transition duration-300 ease-in-out ${classBorderColorMap['normal'][planetNavDataItem.planetName.toLowerCase()]} ${classBorderColorMap['hover'][planetNavDataItem.planetName.toLowerCase()]} font-h4 text-h4 uppercase text-primary-contrast/75 hover:text-primary-contrast/100`}>
               <a href={planetNavDataItem.planetPageLink} class="no-underline">{planetNavDataItem.planetName}</a>
             </li> :
             <li role="listitem"
-                class={`flex items-center h-full border-t-4 ${classBorderColorMap['active'][planetNavDataItem.planetName.toLowerCase()]} font-h4 text-h4 uppercase text-primary-contrast`}>
+                class={`flex items-center h-full md:border-b-4 lg:border-b-0 lg:border-t-4 ${classBorderColorMap['active'][planetNavDataItem.planetName.toLowerCase()]} font-h4 text-h4 uppercase text-primary-contrast`}>
               <p>{planetNavDataItem.planetName}</p>
             </li>
         })
@@ -104,7 +104,7 @@ const {
                   <span aria-hidden="true" class=`mx-1.5 w-1.25 h-1.25 rounded-full ${classBgColorMap[planetNavDataItem.planetName.toLowerCase()]}`></span>
                   <span>{planetNavDataItem.planetName}</span>
                 </span>
-                <img class="w-0.5 justify-self-end mr-1.5" src="/images/icon-chevron.svg" aria-hidden="true">
+                <img class="w-0.5 justify-self-end mr-1.5" src="/fm-planet-facts/images/icon-chevron.svg" aria-hidden="true">
               </a>
             </li>
             ) :
@@ -116,7 +116,7 @@ const {
                   <span aria-hidden="true" class=`mx-1.5 w-1.25 h-1.25 rounded-full ${classBgColorMap[planetNavDataItem.planetName.toLowerCase()]}`></span>
                   <span>{planetNavDataItem.planetName}</span>
                 </span>
-                <img class="w-0.5 justify-self-end mr-1.5 rotate-90" src="/images/icon-chevron.svg" aria-hidden="true"></p>
+                <img class="w-0.5 justify-self-end mr-1.5 rotate-90" src="/fm-planet-facts/images/icon-chevron.svg" aria-hidden="true"></p>
             </li>
             )
         })
@@ -124,7 +124,7 @@ const {
     </ul>
     <button id="menuToggle" class="md:hidden inline-flex flex-row items-center justify-center">
       <img class="w-1.5"
-           src="/images/icon-hamburger.svg"
+           src="/fm-planet-facts/images/icon-hamburger.svg"
            alt="Menu Toggle"
            aria-hidden="true">
       <span class="sr-only">Toggle Menu</span>

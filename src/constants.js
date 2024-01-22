@@ -30,5 +30,9 @@ export const PLANET_SATURN = 'saturn';
 export const PLANET_URANUS = 'uranus';
 export const PLANET_VENUS = 'venus';
 
-export const TITLE_DEFAULT = 'Frontend Mentor - Planet Facts';
+export const TITLE_DEFAULT = 'Frontend Mentor | Planet Facts';
+
+export const DESCRIPTION_DEFAULT = 'A Frontend Mentor &quot;Planet Facts&quot; challenge solution written by Renaud Lapoële & powered by Astro, tailwindcss and a sprinkle of vanilla javascript.';
+
+export const KEYWORDS_DEFAULT = 'Astro, tailwindcss, vanilla javascript, vite, Renaud Lapoële, static site, responsive, frontendmentor.io, planets, solar system, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune';
 export const LANGUAGE_DEFAULT = 'en';

@@ -16,9 +16,9 @@ interface Props {
 const { cssClass, selectedPlanetName, selectedSectionName } = Astro.props;
 
 const sectionNameImageURLMap = {
-  [SECTION_KEY_OVERVIEW]: `/images/planet-${selectedPlanetName}.svg`,
-  [SECTION_KEY_STRUCTURE]: `/images/planet-${selectedPlanetName}-internal.svg`,
-  [SECTION_KEY_GEOLOGY]: `/images/geology-${selectedPlanetName}.png`
+  [SECTION_KEY_OVERVIEW]: `/fm-planet-facts/images/planet-${selectedPlanetName}.svg`,
+  [SECTION_KEY_STRUCTURE]: `/fm-planet-facts/images/planet-${selectedPlanetName}-internal.svg`,
+  [SECTION_KEY_GEOLOGY]: `/fm-planet-facts/images/geology-${selectedPlanetName}.png`
 };
 
 const cssClassPlanetNameSizesMap = {
