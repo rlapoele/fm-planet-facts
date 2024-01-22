@@ -76,7 +76,7 @@ const {
       {
         planetNavData.map((planetNavDataItem) => {
           const planetName = planetNavDataItem.planetName.toLowerCase();
-          return selectedPlanetName ?? '' !== planetName ?
+          return selectedPlanetName !== planetName ?
             <li role="listitem"
                 class={`flex items-center h-full md:border-b-4 lg:border-b-0 lg:border-t-4 transition duration-300 ease-in-out ${classBorderColorMap['normal'][planetNavDataItem.planetName.toLowerCase()]} ${classBorderColorMap['hover'][planetNavDataItem.planetName.toLowerCase()]} font-h4 text-h4 uppercase text-primary-contrast/75 hover:text-primary-contrast/100`}>
               <a href={planetNavDataItem.planetPageLink} class="no-underline">{planetNavDataItem.planetName}</a>
@@ -94,7 +94,7 @@ const {
       {
         planetNavData.map((planetNavDataItem) => {
           const planetName = planetNavDataItem.planetName.toLowerCase();
-          return selectedPlanetName ?? '' !== planetName ?
+          return selectedPlanetName !== planetName ?
             (
             <li role="listitem"
                 class="w-full border-b border-primary-contrast/20">
