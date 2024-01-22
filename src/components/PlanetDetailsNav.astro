@@ -3,7 +3,7 @@ import {
   COLLECTION_PLANET,
   SECTION_KEY_OVERVIEW, SECTION_KEY_STRUCTURE, SECTION_KEY_GEOLOGY,
   SECTION_LABEL_OVERVIEW, SECTION_LABEL_STRUCTURE, SECTION_LABEL_GEOLOGY,
-  SECTION_SHORT_LABEL_OVERVIEW, SECTION_SHORT_LABEL_STRUCTURE, SECTION_SHORT_LABEL_GEOLOGY
+  SECTION_SHORT_LABEL_OVERVIEW, SECTION_SHORT_LABEL_STRUCTURE, SECTION_SHORT_LABEL_GEOLOGY, URL_BASE
 } from '../constants';
 import PlanetDetailsNavItem from "./PlanetDetailsNavItem.astro";
 
@@ -33,20 +33,20 @@ const { selectedPlanetName, selectedSectionName } = Astro.props;
                         sectionIdAsString="01"
                         sectionLabel={SECTION_LABEL_OVERVIEW}
                         sectionShortLabel={SECTION_SHORT_LABEL_OVERVIEW}
-                        sectionPageLink={`/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_OVERVIEW}`} />
+                        sectionPageLink={`${URL_BASE}/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_OVERVIEW}`} />
 
   <PlanetDetailsNavItem selectedPlanetName= {selectedPlanetName}
                         isSelected={selectedSectionName === SECTION_KEY_STRUCTURE}
                         sectionIdAsString="02"
                         sectionLabel={SECTION_LABEL_STRUCTURE}
                         sectionShortLabel={SECTION_SHORT_LABEL_STRUCTURE}
-                        sectionPageLink={`/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_STRUCTURE}`} />
+                        sectionPageLink={`${URL_BASE}/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_STRUCTURE}`} />
 
   <PlanetDetailsNavItem selectedPlanetName= {selectedPlanetName}
                         isSelected={selectedSectionName === SECTION_KEY_GEOLOGY}
                         sectionIdAsString="03"
                         sectionLabel={SECTION_LABEL_GEOLOGY}
                         sectionShortLabel={SECTION_SHORT_LABEL_GEOLOGY}
-                        sectionPageLink={`/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_GEOLOGY}`} />
+                        sectionPageLink={`${URL_BASE}/${COLLECTION_PLANET}/${selectedPlanetName}/${SECTION_KEY_GEOLOGY}`} />
 
 </ul>

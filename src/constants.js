@@ -36,3 +36,5 @@ export const DESCRIPTION_DEFAULT = 'A Frontend Mentor &quot;Planet Facts&quot; c
 
 export const KEYWORDS_DEFAULT = 'Astro, tailwindcss, vanilla javascript, vite, Renaud Lapoële, static site, responsive, frontendmentor.io, planets, solar system, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune';
 export const LANGUAGE_DEFAULT = 'en';
+
+export const URL_BASE = '/fm-planet-facts';
