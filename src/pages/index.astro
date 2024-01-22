@@ -1,5 +1,24 @@
 ---
-  return Astro.redirect('/fm-planet-facts/planets/mercury/overview');
+import {getCollection} from "astro:content";
+import Layout from '../layouts/Layout.astro';
+import {DESCRIPTION_DEFAULT, KEYWORDS_DEFAULT, LANGUAGE_DEFAULT, TITLE_DEFAULT, COLLECTION_PLANET, SECTION_KEY_OVERVIEW} from "../constants";
+
+
+const planets = await getCollection(COLLECTION_PLANET);
+const sortedPlanets = planets.sort((a, b) => a.data.order - b.data.order);
+const planetNavData = sortedPlanets.map((planet) => { return { planetName: planet.data.name, planetPageLink: `/fm-planet-facts/planets/${planet.data.name.toLowerCase()}/${SECTION_KEY_OVERVIEW}` } } );
+
 ---
 
-
+<Layout title={TITLE_DEFAULT}
+        language={LANGUAGE_DEFAULT}
+        description={DESCRIPTION_DEFAULT}
+        keywords={KEYWORDS_DEFAULT}
+        planetNavData={planetNavData} >
+  <section class="h-full flex flex-col items-center gap-2 md:gap-2.5 lg:gap-3.5 pt-8.75 text-center">
+    <h1 class="font-h1 text-h1 uppercase">In the milky way</h1>
+    <p class="font-body-home text-body-home text-primary-contrast/75 text-center mb-1">There are more <span class="font-bold">planets</span> than stars.<br>The current count orbiting our star is <span class="font-bold">eight.</span></p>
+    <a class="inline-block no-underline text-primary-contrast bg-mercury hover:bg-mercury/75 transition-colors duration-300 ease-in-out font-h4 text-h4 px-2 py-1 uppercase rounded-full"
+       href="/fm-planet-facts/planets/mercury/overview">Start Exploring !</a>
+  </section>
+</Layout>

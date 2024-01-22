@@ -70,7 +70,7 @@
     --fmpf-h3-font-weight: 700;
 
     --fmpf-h4-font-stack: var(--fmpf-font-stack-spartan); /* top nav items (mercury, etc., ...) */
-    --fmpf-h4-font-size: calc(11rem / 16);
+    --fmpf-h4-font-size: calc(12rem / 16);
     --fmpf-h4-line-height: calc(25rem / 16);
     --fmpf-h4-letter-spacing: calc(1rem / 16);
     --fmpf-h4-font-weight: 700;
@@ -86,6 +86,12 @@
     --fmpf-body-line-height: calc(22rem / 16);
     --fmpf-body-letter-spacing: normal;
     --fmpf-body-font-weight: 400;
+
+    --fmpf-body-home-font-stack: var(--fmpf-font-stack-spartan);
+    --fmpf-body-home-font-size: calc(14rem / 16);
+    --fmpf-body-home-line-height: calc(22rem / 16);
+    --fmpf-body-home-letter-spacing: 0.015em;
+    --fmpf-body-home-font-weight: 400;
 
     --fmpf-bg-img-starfield: url('/fm-planet-facts/images/background-stars.svg');
 
@@ -131,6 +137,9 @@
     --fmpf-length-69_375: 69.375rem;
 
   }
+  html, body {
+    height: 100%;
+  }
 
   @media screen(md) {
     :root {
@@ -144,11 +153,20 @@
       --fmpf-h2-letter-spacing: calc(-0.9rem / 16);
       --fmpf-h2-font-weight: 400;
 
+      --fmpf-h4-font-size: calc(14rem / 16);
+      --fmpf-h4-line-height: calc(28rem / 16);
+      --fmpf-h4-letter-spacing: calc(1rem / 16);
+      --fmpf-h4-font-weight: 700;
+
       --fmpf-h4-alt-font-size: calc(10rem / 16);
       --fmpf-h4-alt-line-height: calc(22rem / 16);
       --fmpf-h4-alt-letter-spacing: calc(0.727rem / 16);
       --fmpf-h4-alt-font-weight: 700;
 
+      --fmpf-body-home-font-size: calc(18rem / 16);
+      --fmpf-body-home-line-height: calc(28rem / 16);
+      --fmpf-body-home-letter-spacing: 0.015em;
+      --fmpf-body-home-font-weight: 400;
     }
   }
 
@@ -188,6 +206,11 @@
       --fmpf-body-line-height: calc(25rem / 16);
       --fmpf-body-letter-spacing: normal;
       --fmpf-body-font-weight: 400;
+
+      --fmpf-body-home-font-size: calc(21rem / 16);
+      --fmpf-body-home-line-height: calc(34rem / 16);
+      --fmpf-body-home-letter-spacing: 0.015em;
+      --fmpf-body-home-font-weight: 400;
     }
   }
 }

@@ -93,7 +93,16 @@ export default {
           letterSpacing: 'var(--fmpf-body-letter-spacing)',
           fontWeight: 'var(--fmpf-body-font-weight)',
         }
+      ],
+      'body-home': [
+        'var(--fmpf-body-home-font-size)',
+        {
+          lineHeight: 'var(--fmpf-body-home-line-height)',
+          letterSpacing: 'var(--fmpf-body-home-letter-spacing)',
+          fontWeight: 'var(--fmpf-body-home-font-weight)',
+        }
       ]
+
     },
     fontWeight: {
       'regular': 'var(--fmpf-font-weight-regular)',
