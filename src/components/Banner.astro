@@ -132,9 +132,9 @@ const {
   </nav>
 </header>
 <script>
-  const body = document.body;
-  const menuToggle = document.getElementById('menuToggle');
-  const menu = document.getElementById('menu');
+  let body = document.body;
+  let menuToggle = document.getElementById('menuToggle');
+  let menu = document.getElementById('menu');
   let isMenuOpen = false;
 
   const closeMenu= ()=> {
@@ -146,7 +146,6 @@ const {
       isMenuOpen = false;
     }
   }
-  window.addEventListener('resize', closeMenu);
 
   const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
@@ -164,5 +163,24 @@ const {
 
     }
   }
-  menuToggle.addEventListener('click', toggleMenu);
+
+  // Ensure transition between pages (so after navigation is invoked) is done and "new" DOM is present.
+  // Prevents listeners to be lost/removed when the "new" DOM replaces the "old".
+  //
+  // https://docs.astro.build/en/guides/view-transitions/#astropage-load
+  //
+  document.addEventListener(
+    'astro:page-load',
+    () => {
+      body = document.body;
+      menuToggle = document.getElementById('menuToggle');
+      menu = document.getElementById('menu');
+      isMenuOpen = false;
+
+      menuToggle.addEventListener('click', toggleMenu);
+      window.addEventListener('resize', closeMenu);
+    },
+    { once: false }
+  );
+
 </script>
